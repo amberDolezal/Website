@@ -28,6 +28,8 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'mini_racer'
 
+gem 'devise'
+
 group :production do
   gem 'pg', '~> 0.21' # for Heroku deployment
   gem 'rails_12factor'
@@ -49,6 +51,7 @@ group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails', '~> 3.7'
   gem 'capybara', '>= 2.15'
+  gem "factory_bot_rails"
 end
 
 group :development do
