@@ -1,3 +1,127 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Amber's Portofolio</title>
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/album/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="album.css" rel="stylesheet">
+
+  </head>
+
+  <body class="bg-light">
+    <!-- Navigation Bar -->
+    <div class="collapse bg-info" id="navbarToggleExternalContent">
+      <div class="d-none d-md-block container-fluid">
+        <div class="row">
+        <div class="col-2 col-sm-2 col-md-2"></div>
+          <div class="col-4 col-sm-4 col-md-4" style="line-height: 1em;">
+          <h4 class="text-white">About</h4>
+          <p.not() class="text-white" style="font-size:11px;">Hello, my name is Amber Dolezal and I am currently a senior at UCCS,
+           majoring in computer engineering and minoring in electrical engineering. I have experience with programming languages Java, C/C++, Python, and Ruby. </p>
+        </div>
+        <div class="col-2 col-sm-2 col-md-2"></div>
+          <div class="col-4 col-sm-4 col-md-4">
+            <h4 class="text-white">Contact</h4>
+            <ul class="list-unstyled">
+                <li><a href="https://github.com/amberDolezal/" class="text-white">Checkout my Github</a></li>
+                <li class="text-white">Email: macmilad16@gmail.com</li>
+                <li class="text-white">Discord: AmberDolezal#9761</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <a class="navbar-brand" href="/">Amber's Portofolio</a>
+      <div class="collapse navbar-collapse" id="navbarsDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+          <a class="nav-link" href="/" style="font-size:18px;">Home</a>
+          </li>
+          <% if !user_signed_in? %>
+            <li class="nav-item" style="font-size:18px;">
+            <a class="nav-link" href="/users/sign_in">Sign In</a>
+            </li>
+            <li class="nav-item" style="font-size:18px;">
+            <a class="nav-link" href="/users/sign_up">Sign Up</a>
+            </li>
+          <% end %>
+        </ul>
+        <% if user_signed_in? %>
+          <li class="nav-item navbar-nav" style="font-size:18px;">
+          <a class="nav-link" style="color:white;" href="/users/edit">My Account</a>
+          </li>
+          <li class="nav-item navbar-nav" style="font-size:18px;">
+          <a class="nav-link" rel="nofollow" data-method="delete" href="/users/sign_out">Sign Out</a>
+         </li>
+        <% end %>
+        <div class="navbar navbar-dark bg-dark box-shadow">
+          <div class="d-flex justify-content-between">
+            <button class="d-none d-md-block navbar-toggler" href="#collapse1" type="button"
+                data-target="#navbarToggleExternalContent" data-toggle="collapse" aria-controls="navbarHeader"
+                aria-expanded="true" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <p class="h2 text-center text-success" id="notice"><%= notice %></p>
+    <main role="main">
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1 class="text-info display-3">Projects</h1>
+        <p>Below you will find a portofolio of all of the projects that I worked on. Click on a project you would like to learn more about.
+        Thank you for visiting my page!</p>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <% @projects.each do |project| %>
+          <div class="col-md-4">
+            <h class="h3 text-info font-weight-bold"><%= project.title %></h>
+            <p><%= project.description %></p>
+            <p><%= link_to 'Show', project %></p>
+            <% if user_signed_in? %>
+              <p><%= link_to 'Edit', edit_project_path(project) %></p>
+              <p><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+            <% end %>
+          </div> 
+        <% end %>
+      </div>
+    </div> <!-- /container -->
+
+  </main>
+  <br>
+  <br>
+  <footer class="text-center container">
+    <% if user_signed_in? %>
+      <%= link_to 'New Project', new_project_path %>
+    <% end %>
+  </footer>
+
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+  <script src="../../assets/js/vendor/popper.min.js"></script>
+  <script src="../../dist/js/bootstrap.min.js"></script>
+  </body>
+</html>
+
+
+
+
+<!--
+###ACTUAL CODE###
 <p id="notice"><%= notice %></p>
 
 <h1>Projects</h1>
@@ -31,3 +155,4 @@
 <br>
 
 <%= button_to "logout", destroy_user_session_path, method: :delete  %>
+-->

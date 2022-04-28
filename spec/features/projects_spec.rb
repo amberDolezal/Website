@@ -67,7 +67,7 @@ RSpec.feature "Projects", type: :feature do
   context "Remove existing project" do
     let!(:project) { Project.create(title: "Test title", description: "Test content") }
     scenario "remove project" do
-      visit projects_path
+      visit edit_project_path(project)
 
       bob = create(:user)
       
@@ -76,7 +76,8 @@ RSpec.feature "Projects", type: :feature do
         fill_in "Password", with: bob.password
       end
 
-      click_button "Log in"
+      click_button "Log in" 
+      click_link "Back"
       click_link "Destroy"
       expect(page).to have_content("Project was successfully destroyed")
       expect(Project.count).to eq(0)
