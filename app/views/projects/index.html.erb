@@ -14,6 +14,7 @@
   </head>
 
   <body class="bg-light">
+
     <!-- Navigation Bar -->
     <div class="collapse bg-info" id="navbarToggleExternalContent">
       <div class="d-none d-md-block container-fluid">
@@ -88,10 +89,10 @@
           <div class="col-md-4">
             <h class="h3 text-info font-weight-bold"><%= project.title %></h>
             <p><%= project.description %></p>
-            <p><%= link_to 'Show', project %></p>
+            <p><%= link_to 'Show', project, class: "btn btn-outline-info"%></p>
             <% if user_signed_in? %>
-              <p><%= link_to 'Edit', edit_project_path(project) %></p>
-              <p><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+              <p><%= link_to 'Edit', edit_project_path(project), class: "btn btn-outline-info" %></p>
+              <p><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } , class: "btn btn-outline-info"%></p>
             <% end %>
           </div> 
         <% end %>
@@ -103,7 +104,7 @@
   <br>
   <footer class="text-center container">
     <% if user_signed_in? %>
-      <%= link_to 'New Project', new_project_path %>
+      <%= link_to 'New Project', new_project_path, class: "btn btn-outline-secondary" %>
     <% end %>
   </footer>
 

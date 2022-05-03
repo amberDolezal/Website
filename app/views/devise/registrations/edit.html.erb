@@ -125,16 +125,16 @@
         
         <br>
         <div class="actions">
-          <%= f.submit "Update" %>
+          <%= f.submit "Update", class: "btn btn-outline-info"%>
         </div>
       <% end %>
       
       <br>
       <h3 class="h4 font-weight-normal">Cancel My Account</h3>
       
-      <p class="h6 text-info font-weight-normal">Unhappy?<%= button_to "Cancel", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+      <p class="h6 text-info font-weight-normal">Unhappy?<%= button_to "Cancel", registration_path(resource_name), data: { confirm: "Are you sure?" }, :class => "btn btn-info delete-btn", method: :delete%></p>
       
-      <%=link_to "Back", 'javascript:history.go(-1);' %>
+      <%=link_to "Back", 'javascript:history.go(-1);', class: "btn btn-outline-info"%>
     </div>
   </body>
 </html>

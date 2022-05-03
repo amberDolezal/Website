@@ -94,10 +94,12 @@
         <p class="card-text"><%= @project.description %></p>
       </div>
     </div>
-    <%= link_to 'Back', projects_path %>
+    <%= link_to 'Back', projects_path, class: "btn btn-outline-info" %>
+    <br>
     <% if user_signed_in? %>
-      <p><%= link_to 'Edit', edit_project_path(@project) %></p>
-      <p><%= link_to 'Destroy', @project, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+      <br>
+      <p><%= link_to 'Edit', edit_project_path(@project), class: "btn btn-outline-info" %></p>
+      <p><%= link_to 'Destroy', @project, method: :delete, data: { confirm: 'Are you sure?' } , class: "btn btn-outline-info"%></p>
     <% end %>
     </center>
   </body>

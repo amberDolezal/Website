@@ -91,8 +91,11 @@
     <br>
     <center>
         <%= render 'form', project: @project %>
-        <%= link_to 'Show', @project %> |
-        <%= link_to 'Back', projects_path %> 
+        <br>
+        <%= link_to 'Show', @project, class: "btn btn-outline-info" %> 
+        <br>
+        <br>
+        <%= link_to 'Back', projects_path, class: "btn btn-outline-info" %> 
     </center>
   </body>
 </html>
